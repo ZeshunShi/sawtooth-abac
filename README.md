@@ -15,5 +15,6 @@ abac add "policy filename" --user "username"
 abac delete "policy filename" --user "username"
 #### Check a inquiry
 abac check "inquiry filename" --user "username"
+
 ##Notice
 
