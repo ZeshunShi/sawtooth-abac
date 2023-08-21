@@ -25,6 +25,10 @@ $ sawtooth-rest-api -v --connect tcp://172.17.0.2:4004
 ```
 $ abac-tp-python -v --connect tcp://172.17.0.2:4004
 ```
+### abac-listener
+```
+$ abac-listener tcp://172.17.0.2:4004
+```
 ## node2
 ### validator
 ```
@@ -50,6 +54,10 @@ $ sawtooth-rest-api -v --connect tcp://172.17.0.3:4004
 ### abac-tp
 ```
 $ abac-tp-python -v --connect tcp://172.17.0.3:4004
+```
+### abac-listener
+```
+$ abac-listener tcp://172.17.0.3:4004
 ```
 ## node3
 ### validator
@@ -77,6 +85,10 @@ $ sawtooth-rest-api -v --connect tcp://172.17.0.4:4004
 ```
 $ abac-tp-python -v --connect tcp://172.17.0.4:4004
 ```
+### abac-listener
+```
+$ abac-listener tcp://172.17.0.4:4004
+```
 ## node4
 ### validator
 ```
@@ -102,5 +114,9 @@ $ sawtooth-rest-api -v --connect tcp://172.17.0.5:4004
 ### abac-tp
 ```
 $ abac-tp-python -v --connect tcp://172.17.0.5:4004
+```
+### abac-listener
+```
+$ abac-listener tcp://172.17.0.5:4004
 ```
 
