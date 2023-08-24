@@ -1,4 +1,10 @@
 # Start a test network using docker
+## Generate the genesis block
+```
+$ sawset genesis --key $HOME/.sawtooth/keys/node1.priv -o config-genesis.batch
+$ sawset proposal create --key $HOME/.sawtooth/keys/node1.priv -o config-consensus.batch sawtooth.consensus.algorithm.name=pbft sawtooth.consensus.algorithm.version=1.0 sawtooth.consensus.pbft.members='["","","",""]' 
+$ sawadm genesis config-genesis.batch config-consensus.batch
+```
 ## node1
 ### validator
 ```

@@ -1,7 +1,7 @@
 {
     "subject": {
         "id": "",
-        "attributes": {"name": "Max"}
+        "attributes": {"name": "Maxx"}
     },
     "resource": {
         "id": "",
@@ -9,7 +9,7 @@
     },
     "action": {
         "id": "",
-        "attributes": {"method": "get"}
+        "attributes": {"method": "gget"}
     },
     "context": {
         "ip": "127.0.0.1"
