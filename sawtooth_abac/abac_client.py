@@ -43,9 +43,23 @@ class AbacClient:
         return self._send_abac_txn(action="delete", inquiry=policy, wait=wait, auth_user=auth_user, auth_password=auth_password)
     
     def check(self, inquiry, wait=None, auth_user=None, auth_password=None):
-        result = self._send_abac_txn(action="check", inquiry=inquiry, wait=wait, auth_user=auth_user, auth_password=auth_password)
-        return result
-    
+        return self._send_abac_txn(action="check", inquiry=inquiry, wait=wait, auth_user=auth_user, auth_password=auth_password)
+
+    def get(self, inquiry, auth_user=None, auth_password=None):
+        address = make_address("inquiry", json.dumps(inquiry))
+        response = self._send_request("state?address={}".format(address), auth_user=auth_user, auth_password=auth_password)
+        encoded_entries = yaml.safe_load(response)["data"]
+        try:
+            result = encoded_entries[0]["data"]
+            if result == "MQ==":
+                return "Access"
+            elif result == "MA==":
+                return "Deny"
+            else:
+                return "Unknown"
+        except:
+            return "Unknown"
+
     def get_all_policies_addresses(self, auth_user=None, auth_password=None):
         address = make_address("policy", "used")
         response = self._send_request("state?address={}".format(address), auth_user=auth_user, auth_password=auth_password)
@@ -95,12 +109,13 @@ class AbacClient:
         return result.text
 
     def _send_abac_txn(self, action, inquiry, wait=None, auth_user=None, auth_password=None):
-        # Serialization is just a delimited utf-8 encoded string
-        payload = ",".join([action, json.dumps(inquiry)]).encode()
-        # Construct the address
+        # Construct the address and Serialization is just a delimited utf-8 encoded string
         if action == "check":
-            addresses = [make_address("policy", "used"), make_address("inquiry", json.dumps(inquiry))] + self.get_all_policies_addresses()
+            inquiry = json.dumps(inquiry)
+            payload = ",".join([action, inquiry]).encode()
+            addresses = [make_address("policy", "used"), make_address("inquiry", inquiry)] + self.get_all_policies_addresses()
         else:
+            payload = ",".join([action, json.dumps(inquiry)]).encode()
             addresses = [make_address("policy", "used"), make_address("policy", inquiry["uid"])]
         header = TransactionHeader(signer_public_key=self._signer.get_public_key().as_hex(), family_name="abac", family_version="1.0", inputs=addresses, outputs=addresses, dependencies=[], payload_sha512=sha512(payload).hexdigest(), batcher_public_key=self._signer.get_public_key().as_hex(), nonce=hex(random.randint(0, 2**64))).SerializeToString()
         signature = self._signer.sign(header)

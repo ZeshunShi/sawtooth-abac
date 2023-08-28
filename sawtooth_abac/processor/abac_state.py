@@ -146,8 +146,8 @@ class abacState:
         Args:
             inquiry (dict): inquiry details.
         """
-        # address = make_address("inquiry", json.dumps(inquiry))
-        # self._context.set_state({address: result.encode()}, timeout=self.TIMEOUT)
+        address = make_address("inquiry", json.dumps(inquiry))
+        self._context.set_state({address: result.encode()}, timeout=self.TIMEOUT)
         self._context.add_event("abac/result", [("inquiry",json.dumps(inquiry)),("result",result)])
 
     def get_check_result(self, inquiry):
