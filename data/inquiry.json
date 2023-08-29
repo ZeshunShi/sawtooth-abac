@@ -1,0 +1,23 @@
+{
+    "subject": {
+        "id": "",
+        "attributes": {
+            "name": "Max"
+        }
+    },
+    "resource": {
+        "id": "",
+        "attributes": {
+            "name": "myrn:example.com:resource:123"
+        }
+    },
+    "action": {
+        "id": "",
+        "attributes": {
+            "method": "get"
+        }
+    },
+    "context": {
+        "ip": "127.0.0.1"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "uid": "1",
+    "description": "All users can use all applications to read the statistic information without time limit.",
+    "effect": "allow",
+    "rules": {
+        "subject": {},
+        "resource": {
+            "$.type": {
+                "condition": "Equals",
+                "value": "statistic"
+            }
+        },
+        "action": [
+            {
+                "$.method": {
+                    "condition": "Equals",
+                    "value": "read"
+                }
+            }
+        ],
+        "context": {}
+    },
+    "targets": {},
+    "priority": 0
+}

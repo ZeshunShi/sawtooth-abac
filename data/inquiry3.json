@@ -1,0 +1,16 @@
+{
+    "subject": {},
+    "resource": {
+        "id": "",
+        "attributes": {
+            "type": "statistic"
+        }
+    },
+    "action": {
+        "id": "",
+        "attributes": {
+            "method": "read"
+        }
+    },
+    "context": {}
+}
