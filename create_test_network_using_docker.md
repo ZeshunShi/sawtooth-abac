@@ -174,7 +174,9 @@ peers = [urls of all other nodes in the network]
 ```
 ### Start the node
 ```
-like other nodes
+// like other nodes
 ```
 ### Turn to the genesis node
+```
 sawset proposal create --key $HOME/.sawtooth/keys/node1.priv sawtooth.consensus.pbft.members='[previous-list,"new-node-validator-pubkey"]'
+```

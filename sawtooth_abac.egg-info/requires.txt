@@ -1,6 +1,0 @@
-PyYAML
-aiohttp
-colorlog
-protobuf
-py-abac
-sawtooth-sdk
