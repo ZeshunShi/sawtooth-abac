@@ -1,5 +1,11 @@
 {
-    "subject": {},
+    "subject": {
+        "id": "",
+        "attributes": {
+            "user-level": 4,
+            "type": "admin"
+        }
+    },
     "resource": {
         "id": "",
         "attributes": {
@@ -9,8 +15,10 @@
     "action": {
         "id": "",
         "attributes": {
-            "method": "read"
+            "method": "add"
         }
     },
-    "context": {}
+    "context": {
+        "time": "10"
+    }
 }

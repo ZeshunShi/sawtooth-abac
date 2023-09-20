@@ -1,16 +1,24 @@
 {
-    "subject": {},
+    "subject": {
+        "id": "",
+        "attributes": {
+            "user-level": 6,
+            "type": "admin"
+        }
+    },
     "resource": {
         "id": "",
         "attributes": {
-            "type": "statistic"
+            "type": "flow"
         }
     },
     "action": {
         "id": "",
         "attributes": {
-            "method": "read"
+            "method": "add"
         }
     },
-    "context": {}
+    "context": {
+        "time": "10"
+    }
 }

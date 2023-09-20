@@ -32,4 +32,3 @@ Try to do the following two steps:
 $ pip3 install marshmallow-annotations
 $ pip3 install marshmallow~=3.2
 ```
-
