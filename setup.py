@@ -31,17 +31,17 @@ if os.path.exists("/lib/systemd/system"):
 setup(
     name='sawtooth-abac',
     version='1.0',
-    description='Sawtooth abac Example',
-    author='Hyperledger Sawtooth',
-    url='https://github.com/hyperledger/sawtooth-sdk-python',
+    description='Sawtooth ABAC Example',
     packages=find_packages(),
     install_requires=[
-        'aiohttp',
-        'colorlog',
-        'protobuf',
-        'sawtooth-sdk',
-        'PyYAML',
-        'py-abac'
+        'aiohttp==3.0.1',
+        'colorlog==3.1.2',
+        'protobuf==3.6.1',
+        'sawtooth-sdk==1.2.5',
+        'PyYAML==3.12',
+        'requests==2.18.4',
+        'py-abac==0.4.1',
+        'pyzmq==16.0.2'
     ],
     data_files=data_files,
     entry_points={
