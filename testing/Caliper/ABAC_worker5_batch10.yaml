@@ -1,0 +1,72 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions
+  clients:
+    type: local
+    number: 5
+  rounds:
+  - label: open
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 
+      - 20
+      - 20
+      - 20
+      - 20
+      - 20
+    rateControl:
+      - type: fixed-rate
+        opts:
+          tps: 4
+      - type: fixed-rate
+        opts:
+          tps: 8
+      - type: fixed-rate
+        opts:
+          tps: 12
+      - type: fixed-rate
+        opts:
+          tps: 16
+      - type: fixed-rate
+        opts:
+          tps: 20
+    arguments:
+        money: 1000
+        txnPerBatch: 10
+    callback: benchmark/simple/open.js
+  - label: query
+    description: Test description for the query performance of the deployed chaincode
+    txNumber: 
+      - 20
+      - 20
+      - 20
+      - 20
+      - 20
+    rateControl:
+      - type: fixed-rate
+        opts:
+          tps: 4
+      - type: fixed-rate
+        opts:
+          tps: 8
+      - type: fixed-rate
+        opts:
+          tps: 12
+      - type: fixed-rate
+        opts:
+          tps: 16
+      - type: fixed-rate
+        opts:
+          tps: 20
+    arguments:
+        money: 1000
+        txnPerBatch: 10
+    callback: benchmark/simple/query.js
+monitor:
+  type: docker
+  docker:
+    name:
+    - all
+  interval: 1
+
