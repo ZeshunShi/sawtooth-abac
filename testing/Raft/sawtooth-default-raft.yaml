@@ -20,6 +20,150 @@ volumes:
 
 services:
 
+
+
+
+  simple-tp-python-0:
+    image: szeshun/sawtooth-simple-tp:latest
+    container_name: simple-tp-python-default-0
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -vv -C tcp://validator-0:4004
+    stop_signal: SIGKILL
+
+
+  simple-tp-python-1:
+    image: szeshun/sawtooth-simple-tp:latest
+    container_name: simple-tp-python-default-1
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-1:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-2:
+    image: szeshun/sawtooth-simple-tp:latest
+    container_name: simple-tp-python-default-2
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-2:4004
+    stop_signal: SIGKILL
+
+
+  simple-tp-python-3:
+    image: szeshun/sawtooth-simple-tp:latest
+    container_name: simple-tp-python-default-3
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-3:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-4:
+    image: szeshun/sawtooth-simple-tp:latest
+    container_name: simple-tp-python-default-4
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-4:4004
+    stop_signal: SIGKILL
+
+
+
+
+
+  rest-api-0:
+    container_name: rest-api-0
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8000:8008'
+    depends_on:
+      - validator-0
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-0:4004 \
+          --bind rest-api-0:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-1:
+    container_name: rest-api-1
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8001:8008'
+    depends_on:
+      - validator-1
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-1:4004 \
+          --bind rest-api-1:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-2:
+    container_name: rest-api-2
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8002:8008'
+    depends_on:
+      - validator-2
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-2:4004 \
+          --bind rest-api-2:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-3:
+    container_name: rest-api-3
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8003:8008'
+    depends_on:
+      - validator-3
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-3:4004 \
+          --bind rest-api-3:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-4:
+    container_name: rest-api-4
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8004:8008'
+    depends_on:
+      - validator-4
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-4:4004 \
+          --bind rest-api-4:8008
+      "
+    stop_signal: SIGKILL
   # -------------=== settings tp ===-------------
 
 

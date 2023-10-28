@@ -1,0 +1,270 @@
+2023-10-24T02:11:41+08:00 - DEBUG Constructed a winston logger with the specified targets:
+	{"consolelogger":{"target":"console","level":"info"},"filelogger":{"target":"daily-rotate-file","level":"debug","filename":"log/caliper-%DATE%.log","datePattern":"YYYY-MM-DD-HH","maxSize":"5m","zippedArchive":true}}
+
+2023-10-24T02:11:41+08:00 - INFO [scripts/run.js]: Benchmark for target Blockchain type sawtooth about to start 
+
+2023-10-24T02:11:42+08:00 - INFO [caliper-flow]: ####### Caliper Test ####### 
+
+2023-10-24T02:11:42+08:00 - INFO [caliper-flow]: Executing command: cd /root/benchmarkingHyperledgerplatforms/packages/caliper-application/;docker-compose -f network/sawtooth-poet/sawtooth-poet-10-validators/docker-compose.yaml up -d; sleep 30s 
+
+2023-10-24T02:17:14+08:00 - ERROR [monitor-docker.js]: monitor-docker: could not find active local container 
+
+2023-10-24T02:17:14+08:00 - INFO [caliper-flow]: Started monitor successfully 
+
+2023-10-24T02:17:14+08:00 - INFO [caliper-flow]: ####### Testing 'open' ####### 
+
+2023-10-24T02:17:14+08:00 - INFO [caliper-flow]: ------ Test round 1 ------ 
+
+2023-10-24T02:17:14+08:00 - INFO [client-util.js]: All clients ready, starting test phase 
+
+2023-10-24T02:17:14+08:00 - DEBUG Constructed a winston logger with the specified targets:
+	{"consolelogger":{"target":"console","level":"info"},"filelogger":{"target":"daily-rotate-file","level":"debug","filename":"log/caliper-%DATE%.log","datePattern":"YYYY-MM-DD-HH","maxSize":"5m","zippedArchive":true}}
+
+2023-10-24T02:17:14+08:00 - DEBUG [local-client.js]: doTest() with:
+	{"type":"test","label":"open","rateControl":{"type":"fixed-rate","opts":{"tps":10}},"trim":0,"args":{"money":10000,"txnPerBatch":10},"cb":"benchmark/simple/open.js","config":"caliper-application/network/sawtooth-poet/sawtooth-poet-10-validators/sawtooth.json","root":"/root/benchmarkingHyperledgerplatforms/packages/caliper-application/","numb":50,"txFile":{"roundLength":1,"roundCurrent":0,"readWrite":"no"},"roundIdx":1,"totalClients":1,"clients":1,"clientargs":{},"clientIdx":0}
+
+2023-10-24T02:17:14+08:00 - INFO [local-client.js]: txUpdateTime: 1000 
+
+2023-10-24T02:17:14+08:00 - INFO [local-client.js]: Info: client 46148 start test runFixedNumber():opening accounts 
+
+2023-10-24T02:17:14+08:00 - DEBUG [rateControl.js]: Creating rate controller for client#0 for round#1
+	{"type":"fixed-rate","opts":{"tps":10}}
+
+2023-10-24T02:17:15+08:00 - ERROR [sawtooth.js]: invokeSmartContract failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000 
+
+2023-10-24T02:17:15+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 0 Succ: 0 Fail:0 Unfinished:0 
+
+2023-10-24T02:17:15+08:00 - ERROR [sawtooth.js]: invokeSmartContract failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000 
+
+2023-10-24T02:17:16+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 10 Succ: 0 Fail:10 Unfinished:0 
+
+2023-10-24T02:17:16+08:00 - ERROR [sawtooth.js]: invokeSmartContract failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000 
+
+2023-10-24T02:17:17+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 20 Succ: 0 Fail:20 Unfinished:0 
+
+2023-10-24T02:17:17+08:00 - ERROR [sawtooth.js]: invokeSmartContract failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000 
+
+2023-10-24T02:17:18+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 30 Succ: 0 Fail:30 Unfinished:0 
+
+2023-10-24T02:17:18+08:00 - ERROR [sawtooth.js]: invokeSmartContract failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000 
+
+2023-10-24T02:17:19+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 40 Succ: 0 Fail:40 Unfinished:0 
+
+2023-10-24T02:17:20+08:00 - DEBUG [caliper-flow]: r.create.max: 1698085038.974 r.create.min: 1698085035.035 r.final.max: null r.final.min: null r.final.last: 1698085038.974 
+
+2023-10-24T02:17:20+08:00 - DEBUG [caliper-flow]:  throughput for only success time computed: 0.0 
+
+2023-10-24T02:17:20+08:00 - DEBUG [caliper-flow]: sendTransactionProposal: 0ms length: 50 
+
+2023-10-24T02:17:20+08:00 - DEBUG [caliper-flow]: sendTransaction: 0ms 
+
+2023-10-24T02:17:20+08:00 - DEBUG [caliper-flow]: invokeLantency: 0ms 
+
+2023-10-24T02:17:20+08:00 - INFO [caliper-flow]: ###test result:### 
+
+2023-10-24T02:17:20+08:00 - INFO [caliper-flow]: 
++------+------+------+-----------+-------------+-------------+-------------+------------+
+| Name | Succ | Fail | Send Rate | Max Latency | Min Latency | Avg Latency | Throughput |
+|------|------|------|-----------|-------------|-------------|-------------|------------|
+| open | 0    | 50   | 12.7 tps  | 0.00 s      | 100000.00 s | NaN s       | 0.0 tps    |
++------+------+------+-----------+-------------+-------------+-------------+------------+
+ 
+
+2023-10-24T02:17:20+08:00 - ERROR [monitor.js]: Failed to read monitoring data 
+
+2023-10-24T02:17:20+08:00 - INFO [caliper-flow]: ------ Passed 'open' testing ------ 
+
+2023-10-24T02:17:20+08:00 - INFO [caliper-flow]: Waiting 5 seconds for the next round... 
+
+2023-10-24T02:17:20+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 50 Succ: 0 Fail:50 Unfinished:0 
+
+2023-10-24T02:17:21+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 50 Succ: 0 Fail:50 Unfinished:0 
+
+2023-10-24T02:17:22+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 50 Succ: 0 Fail:50 Unfinished:0 
+
+2023-10-24T02:17:23+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 50 Succ: 0 Fail:50 Unfinished:0 
+
+2023-10-24T02:17:24+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 50 Succ: 0 Fail:50 Unfinished:0 
+
+2023-10-24T02:17:25+08:00 - INFO [caliper-flow]: ####### Testing 'query' ####### 
+
+2023-10-24T02:17:25+08:00 - INFO [caliper-flow]: ------ Test round 2 ------ 
+
+2023-10-24T02:17:25+08:00 - INFO [client-util.js]: All clients ready, starting test phase 
+
+2023-10-24T02:17:25+08:00 - DEBUG [local-client.js]: doTest() with:
+	{"type":"test","label":"query","rateControl":{"type":"fixed-rate","opts":{"tps":1}},"trim":0,"cb":"benchmark/simple/query.js","config":"caliper-application/network/sawtooth-poet/sawtooth-poet-10-validators/sawtooth.json","root":"/root/benchmarkingHyperledgerplatforms/packages/caliper-application/","numb":5,"txFile":{"roundLength":1,"roundCurrent":0,"readWrite":"no"},"roundIdx":2,"totalClients":1,"clients":1,"clientargs":{},"clientIdx":0}
+
+2023-10-24T02:17:25+08:00 - INFO [local-client.js]: txUpdateTime: 1000 
+
+2023-10-24T02:17:25+08:00 - INFO [local-client.js]: Info: client 46148 start test runFixedNumber():querying accounts 
+
+2023-10-24T02:17:25+08:00 - DEBUG [rateControl.js]: Creating rate controller for client#0 for round#2
+	{"type":"fixed-rate","opts":{"tps":1}}
+
+2023-10-24T02:17:25+08:00 - ERROR [sawtooth.js]: Query failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000
+    at new RequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/errors.js:14:15)
+    at Request.plumbing.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:87:29)
+    at Request.RP$callback [as _callback] (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:46:31)
+    at self.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:185:22)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at Request.onRequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:877:8)
+    at emitOne (events.js:116:13)
+    at ClientRequest.emit (events.js:211:7)
+    at Socket.socketErrorListener (_http_client.js:401:9)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:66:8)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9) 
+
+2023-10-24T02:17:25+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 50 Succ: 0 Fail:50 Unfinished:0 
+
+2023-10-24T02:17:26+08:00 - ERROR [sawtooth.js]: Query failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000
+    at new RequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/errors.js:14:15)
+    at Request.plumbing.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:87:29)
+    at Request.RP$callback [as _callback] (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:46:31)
+    at self.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:185:22)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at Request.onRequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:877:8)
+    at emitOne (events.js:116:13)
+    at ClientRequest.emit (events.js:211:7)
+    at Socket.socketErrorListener (_http_client.js:401:9)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:66:8)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9) 
+
+2023-10-24T02:17:26+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 51 Succ: 0 Fail:51 Unfinished:0 
+
+2023-10-24T02:17:27+08:00 - ERROR [sawtooth.js]: Query failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000
+    at new RequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/errors.js:14:15)
+    at Request.plumbing.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:87:29)
+    at Request.RP$callback [as _callback] (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:46:31)
+    at self.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:185:22)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at Request.onRequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:877:8)
+    at emitOne (events.js:116:13)
+    at ClientRequest.emit (events.js:211:7)
+    at Socket.socketErrorListener (_http_client.js:401:9)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:66:8)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9) 
+
+2023-10-24T02:17:27+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 52 Succ: 0 Fail:52 Unfinished:0 
+
+2023-10-24T02:17:28+08:00 - ERROR [sawtooth.js]: Query failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000
+    at new RequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/errors.js:14:15)
+    at Request.plumbing.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:87:29)
+    at Request.RP$callback [as _callback] (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:46:31)
+    at self.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:185:22)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at Request.onRequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:877:8)
+    at emitOne (events.js:116:13)
+    at ClientRequest.emit (events.js:211:7)
+    at Socket.socketErrorListener (_http_client.js:401:9)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:66:8)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9) 
+
+2023-10-24T02:17:28+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 53 Succ: 0 Fail:53 Unfinished:0 
+
+2023-10-24T02:17:29+08:00 - ERROR [sawtooth.js]: Query failed, RequestError: Error: connect ECONNREFUSED 127.0.0.1:8000
+    at new RequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/errors.js:14:15)
+    at Request.plumbing.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:87:29)
+    at Request.RP$callback [as _callback] (/root/benchmarkingHyperledgerplatforms/node_modules/request-promise-core/lib/plumbing.js:46:31)
+    at self.callback (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:185:22)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at Request.onRequestError (/root/benchmarkingHyperledgerplatforms/node_modules/request/request.js:877:8)
+    at emitOne (events.js:116:13)
+    at ClientRequest.emit (events.js:211:7)
+    at Socket.socketErrorListener (_http_client.js:401:9)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:66:8)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9) 
+
+2023-10-24T02:17:29+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 54 Succ: 0 Fail:54 Unfinished:0 
+
+2023-10-24T02:17:30+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 55 Succ: 0 Fail:55 Unfinished:0 
+
+2023-10-24T02:17:30+08:00 - DEBUG [caliper-flow]: r.create.max: 1698085049.193 r.create.min: 1698085045.192 r.final.max: null r.final.min: null r.final.last: 0 
+
+2023-10-24T02:17:30+08:00 - DEBUG [caliper-flow]:  throughput for only success time computed: 0.0 
+
+2023-10-24T02:17:30+08:00 - DEBUG [caliper-flow]: sendTransactionProposal: 0ms length: 5 
+
+2023-10-24T02:17:30+08:00 - DEBUG [caliper-flow]: sendTransaction: 0ms 
+
+2023-10-24T02:17:30+08:00 - DEBUG [caliper-flow]: invokeLantency: 0ms 
+
+2023-10-24T02:17:30+08:00 - INFO [caliper-flow]: ###test result:### 
+
+2023-10-24T02:17:30+08:00 - INFO [caliper-flow]: 
++-------+------+------+-----------+-------------+-------------+-------------+------------+
+| Name  | Succ | Fail | Send Rate | Max Latency | Min Latency | Avg Latency | Throughput |
+|-------|------|------|-----------|-------------|-------------|-------------|------------|
+| query | 0    | 5    | 1.2 tps   | 0.00 s      | 100000.00 s | NaN s       | 0.0 tps    |
++-------+------+------+-----------+-------------+-------------+-------------+------------+
+ 
+
+2023-10-24T02:17:30+08:00 - ERROR [monitor.js]: Failed to read monitoring data 
+
+2023-10-24T02:17:30+08:00 - INFO [caliper-flow]: ------ Passed 'query' testing ------ 
+
+2023-10-24T02:17:30+08:00 - INFO [caliper-flow]: ---------- Finished Test ----------
+ 
+
+2023-10-24T02:17:30+08:00 - INFO [caliper-flow]: ###all test results:### 
+
+2023-10-24T02:17:30+08:00 - INFO [caliper-flow]: 
++------+-------+------+------+-----------+-------------+-------------+-------------+------------+
+| Test | Name  | Succ | Fail | Send Rate | Max Latency | Min Latency | Avg Latency | Throughput |
+|------|-------|------|------|-----------|-------------|-------------|-------------|------------|
+| 1    | open  | 0    | 50   | 12.7 tps  | 0.00 s      | 100000.00 s | NaN s       | 0.0 tps    |
+|------|-------|------|------|-----------|-------------|-------------|-------------|------------|
+| 2    | query | 0    | 5    | 1.2 tps   | 0.00 s      | 100000.00 s | NaN s       | 0.0 tps    |
++------+-------+------+------+-----------+-------------+-------------+-------------+------------+
+ 
+
+2023-10-24T02:17:30+08:00 - ERROR [monitor.js]: Failed to read monitoring data 
+
+2023-10-24T02:17:30+08:00 - INFO [caliper-flow]: Generated report at /root/benchmarkingHyperledgerplatforms/packages/caliper-application/scripts/report-20231023T181730.html 
+
+2023-10-24T02:17:30+08:00 - INFO [demo.js]: [Transaction Info] - Submitted: 55 Succ: 0 Fail:55 Unfinished:0 
+
+2023-10-24T02:17:30+08:00 - INFO [caliper-flow]: Executing command: cd /root/benchmarkingHyperledgerplatforms/packages/caliper-application/;docker-compose -f network/sawtooth-poet/sawtooth-poet-10-validators/docker-compose.yaml down;docker rm -f $(docker ps -aq) 
+
+2023-10-24T02:17:30+08:00 - INFO [client-util.js]: Client exited  
+
+2023-10-24T02:17:31+08:00 - ERROR [caliper-flow]: Unsuccessful command execution. Error code: 1. Terminating signal: null 
+
+2023-10-24T02:19:14+08:00 - DEBUG Constructed a winston logger with the specified targets:
+	{"consolelogger":{"target":"console","level":"info"},"filelogger":{"target":"daily-rotate-file","level":"debug","filename":"log/caliper-%DATE%.log","datePattern":"YYYY-MM-DD-HH","maxSize":"5m","zippedArchive":true}}
+
+2023-10-24T02:19:14+08:00 - INFO [scripts/run.js]: Benchmark for target Blockchain type sawtooth about to start 
+
+2023-10-24T02:19:14+08:00 - INFO [caliper-flow]: ####### Caliper Test ####### 
+
+2023-10-24T02:19:14+08:00 - INFO [caliper-flow]: Executing command: cd /root/benchmarkingHyperledgerplatforms/packages/caliper-application/;docker-compose -f network/sawtooth-poet/sawtooth-poet-10-validators/docker-compose.yaml up -d; sleep 30s 
+
+2023-10-24T02:34:30+08:00 - DEBUG Constructed a winston logger with the specified targets:
+	{"consolelogger":{"target":"console","level":"info"},"filelogger":{"target":"daily-rotate-file","level":"debug","filename":"log/caliper-%DATE%.log","datePattern":"YYYY-MM-DD-HH","maxSize":"5m","zippedArchive":true}}
+
+2023-10-24T02:34:30+08:00 - INFO [scripts/run.js]: Benchmark for target Blockchain type sawtooth about to start 
+
+2023-10-24T02:34:30+08:00 - INFO [caliper-flow]: ####### Caliper Test ####### 
+
+2023-10-24T02:34:30+08:00 - INFO [caliper-flow]: Executing command: cd /root/benchmarkingHyperledgerplatforms/packages/caliper-application/;docker-compose -f network/sawtooth-poet/sawtooth-poet-5-validators/docker-compose.yaml up -d; sleep 30s 
+

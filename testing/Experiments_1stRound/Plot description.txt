@@ -1,0 +1,38 @@
+Throughput vs. Send Rate:
+
+The "Throughput vs. Send Rate" plot provides an insightful view of how system performance varies based on transaction demand for 'open' and 'query' operations. On inspecting the 'open' operation, at a send rate of 20 tps, the system achieves a throughput of approximately 12.9 tps. However, as we ramp up the send rate to 100 tps, the throughput drastically decreases to around 3.6 tps. This decline suggests that the system might be experiencing bottlenecks or resource constraints, particularly when processing 'open' transactions at higher rates. In comparison, the 'query' operation maintains a relatively high throughput even at escalated send rates. Notably, at a send rate of 100 tps, it achieves a throughput close to 37.1 tps, which indicates efficient handling and possibly optimized paths for query transactions within the system.
+
+Average Latency vs. Send Rate:
+
+The "Average Latency vs. Send Rate" graph depicts the system's responsiveness under varying transaction loads for 'open' and 'query' operations. For the 'open' operation, there's a substantial increase in latency as the send rate escalates. Specifically, at a send rate of 20 tps, the latency is around 7.75 seconds, but this value skyrockets to approximately 27.79 seconds at 100 tps. Such a pattern hints at potential system saturation or increased contention for resources when handling 'open' transactions. On the flip side, the 'query' operation displays a more gradual increase in latency with the rising send rate. Remarkably, even at the highest send rate of 100 tps, the average latency remains under 2 seconds, settling around 1.58 seconds. This behavior might be attributed to more streamlined processing, caching mechanisms, or optimized data retrieval paths for 'query' transactions.
+
+
+
+Open Operation Plot Description:
+
+In the plot representing the "Open" operation, the validator containers, on average, consume significantly more memory than the abac-tp containers. For instance, validator-0 shows a memory consumption of around 73.5 MB, which is almost 3.5 times higher than the memory consumed by any abac-tp container (approximately 20.2 MB for abac-tp-2). This disparity suggests that the tasks or processes running within the validator containers are more memory-intensive than those in the abac-tp containers during the "Open" operation.
+
+On the CPU usage front, there's a noticeable peak for validator-0 at about 45.84%. This spike indicates that validator-0 might be handling more complex or a larger number of tasks compared to other containers during this operation. The other validator containers also exhibit higher CPU usage compared to the abac-tp containers, which hover around the 18% to 20% range. The lower CPU usage for abac-tp containers implies that their tasks are either less computationally intensive or optimized better for the "Open" operation.
+
+Query Operation Plot Description:
+
+For the "Query" operation, the memory consumption pattern is somewhat consistent with the "Open" operation. The validator containers continue to use more memory, averaging above 100 MB. Specifically, validator-3 reaches up to 108.2 MB. In contrast, all abac-tp containers maintain a consistent memory usage around 20.1 MB, suggesting a uniform load or task type across these containers for this operation.
+
+However, CPU usage during the "Query" operation showcases a stark deviation. While most containers have minimal CPU activity, validator-0 stands out with a significant spike, reaching as high as 61.51%. This anomaly might be due to validator-0 handling a bulk of the queries or managing more intricate query operations. The negligible CPU activity in the other containers, including all abac-tp containers, indicates that they might not be actively participating in the "Query" operation or are handling lighter query loads.
+
+
+
+Description of the Box Plots:
+The box plots provide a comparative view of resource consumption between the validator and abac-tp Docker containers during the "Open" and "Query" operations.
+Memory Usage during Open Operation:
+
+The validator group exhibits a median memory consumption close to 72 MB, with the upper quartile approaching 76 MB. This implies that at least 75% of validator containers consume up to 76 MB of memory. In contrast, the abac-tp containers have a median memory usage around 20.2 MB, indicating a much lower and consistent memory requirement.
+CPU Usage during Open Operation:
+
+The CPU distribution for the validator group is more spread out, with an approximate median value of 44%. This suggests that half of the validator containers have CPU consumption below this mark, while the others exceed it. The abac-tp containers, on the other hand, have a much tighter CPU usage distribution, clustering around the 18% to 20% range.
+Memory Usage during Query Operation:
+
+Both container groups display similar memory usage patterns as the "Open" operation. The validator group's memory usage remains significantly higher, with the third quartile (75th percentile) nearing 108 MB.
+CPU Usage during Query Operation:
+
+The most striking observation here is the outlier in the validator group, which surpasses the 60% mark. This is consistent with our earlier observation of validator-0 exhibiting significantly higher CPU activity during the "Query" operation. The presence of this outlier suggests that while most validator containers had minimal CPU activity, one particular container (validator-0) was heavily engaged, possibly handling a bulk of the queries or managing more intricate query operations.
